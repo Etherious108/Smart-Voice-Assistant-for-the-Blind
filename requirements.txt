@@ -1,0 +1,11 @@
+tensorboard
+tensorboard-data-server
+tensorflow
+tqdm
+keras
+numpy
+django
+djangorestframework
+crypto
+pycrypto
+pyaudio

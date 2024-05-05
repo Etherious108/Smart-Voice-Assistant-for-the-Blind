@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static 'styles.css' %}" /> <!-- Use Django's static template tag -->
+  <title>Home Page</title>
+</head>
+<body>
+  <header>
+    <H1>VisionVoice</H1>
+    <center><h4><i>Smart Voice Assistant</i></h4></center>
+  </header>
+
+  <form action="" method="post" novalidate class="shadow p-5" enctype="multipart/form-data">
+    {% csrf_token %}
+    <section class="vh-100 gradient-custom">
+      <div class="container mt-0 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-light text-black" style="border-radius: 1rem">
+              <div class="card-body p-5 text-center">
+                <div class="mb-md-5 pb-2">
+                  <h2 class="fw-bold mb-2 text-uppercase"><b>TEXT DESCRIPTION</b></h2>
+                  <p class="text-white-50"><b>Please Select the Image to get the respective output (Use .jpg, .jpeg, .png files only)</b></p>
+                  {% if error_message %}
+                  <div class="alert alert-danger">
+                      {{ error_message }}
+                  </div>
+                  {% endif %}
+                  {{ form.as_p }}
+                  <button class="btn btn-dark btn-lg px-5 mt-3 mb-3" type="submit">Generate</button>
+                  {% if image.caption %}
+                  <div class="caption-container mt-4">
+                    <img src="{% get_media_prefix %}{{ image.image }}" alt="Image" class="img-fluid">
+                    <p class="text-white-50 mb-5 mt-3"><b>{{ image.caption }}</b></p>
+                </div>
+                  <div class="audio-container">
+                    <audio controls>
+                      <source src="{% static 'info.wav' %}" type="audio/wav">
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

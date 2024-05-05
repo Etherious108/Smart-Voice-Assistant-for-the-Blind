@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background: white;
+  padding: 20px;
+}
+
+header > h1 {
+  color: #24272e;
+  text-align: center;
+  font-size: 35px;
+  font-family: Asap, sans-serif;
+  font-weight: bold;
+}
+
+.heading {
+  color: #24272e;
+  text-align: center;
+  font-size: 20px;
+  font-family: Asap, sans-serif;
+  font-weight: bold;
+}
+
+body {
+  font-family: Asap, sans-serif;
+  font-size: 15.5px;
+  background-color: #24272e;
+  padding-bottom: 0px;
+}
